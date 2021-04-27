@@ -20,7 +20,7 @@ public class AppSelectionPanel extends JPanel {
 		int column = 0;
 		int row = 0;
 		for (String Application : settings.getAppNames()) {
-			JCheckBox app = ComboBoxFactoryUtils.getInstance(Application);
+			JCheckBox app = CheckBoxFactoryUtils.getInstance(Application);
 			if (column == numberOfColumns) {
 				row++;
 				column = 0;
