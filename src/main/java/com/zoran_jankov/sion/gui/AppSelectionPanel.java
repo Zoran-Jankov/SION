@@ -1,5 +1,6 @@
 package com.zoran_jankov.sion.gui;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.JCheckBox;
@@ -12,7 +13,7 @@ import net.miginfocom.swing.MigLayout;
 public class AppSelectionPanel extends JPanel {
 	private static final long serialVersionUID = 2024293821169454146L;
 	private InstallerSettings settings = InstallerSettings.getInstance();
-	private Map<String, JCheckBox> checkBoxes;
+	private Map<String, JCheckBox> checkBoxes = new HashMap<String, JCheckBox>();
 
 	public AppSelectionPanel(int numberOfColumns) {
 		String[] layout = generateLayout(numberOfColumns);
@@ -20,7 +21,7 @@ public class AppSelectionPanel extends JPanel {
 		int column = 0;
 		int row = 0;
 		for (String Application : settings.getAppNames()) {
-			JCheckBox app = CheckBoxFactoryUtils.getInstance(Application);
+			JCheckBox appCheckBox = CheckBoxFactoryUtils.getInstance(Application);
 			if (column == numberOfColumns) {
 				row++;
 				column = 0;
@@ -28,7 +29,8 @@ public class AppSelectionPanel extends JPanel {
 			String cell = "cell " + Integer.toString(column) + " "
 					+ Integer.toString(row);
 			column++;
-			add(app, cell);
+			add(appCheckBox, cell);
+			checkBoxes.put(Application, appCheckBox);
 		}
 	}
 
@@ -54,7 +56,9 @@ public class AppSelectionPanel extends JPanel {
 		return layout;
 	}
 	
-	public Map<String, Boolean> name() {
-		return null;
+	public Map<String, Boolean> getAppsForInstall() {
+		Map<String, Boolean> applications = new HashMap<String, Boolean>();
+		checkBoxes.forEach((key, value) -> applications.put(key, value.isSelected()));
+		return applications;
 	}
 }
