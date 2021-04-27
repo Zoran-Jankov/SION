@@ -4,6 +4,7 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 
 import com.zoran_jankov.sion.app.InstallerManager;
@@ -19,7 +20,7 @@ public class MainWindowController {
 
 	public MainWindowController() {
 		window.setLayout(new MigLayout("insets 20", "[center]",
-				"[][10px][200px][10px][]"));
+				"[][10px][200px][fill,grow][10px][]"));
 		window.setVisible(true);
 		window.setResizable(false);
 		initializeComponents();
@@ -35,7 +36,9 @@ public class MainWindowController {
 		JTextArea infoBox = new JTextArea();
 		infoBox.setEditable(false);
 		window.add(infoBox, "cell 0 2,grow");
+		JProgressBar progressBar = new JProgressBar();
+		window.add(progressBar, "cell 0 3");
 		JButton installButton = new JButton("Install");
-		window.add(installButton, "cell 0 4");
+		window.add(installButton, "cell 0 5");
 	}
 }
