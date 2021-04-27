@@ -11,7 +11,7 @@
 
 ## Description
 
-SION, short for Software Installation Over Network, is an installation manager for auto installing software with installer executables on a network location. Ideal for system administrators in medium and large networks.
+SION, short for Software Installer Over Network, is an installation manager for auto installing software with installer executables on a network location. Ideal for system administrators in medium and large networks.
 
 ![Application Window](https://github.com/Zoran-Jankov/SION/blob/main/src/main/resources/Pictures/Application%20Window.png)
 
