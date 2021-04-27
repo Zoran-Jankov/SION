@@ -14,7 +14,7 @@ import net.miginfocom.swing.MigLayout;
 public class MainWindowController {
 	private static final int NUMBER_OF_COLUMNS = 4;
 	private InstallerManager installerManager = new InstallerManager();
-	private JFrame window = new JFrame("SION - Software Instaler Over Network");
+	private JFrame window = new JFrame("SION - Software Installer Over Network");
 	private Dimension windowSize;
 
 	public MainWindowController() {
