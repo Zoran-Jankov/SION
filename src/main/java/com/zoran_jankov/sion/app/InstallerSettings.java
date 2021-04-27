@@ -6,66 +6,45 @@ import java.util.Set;
 
 import org.ini4j.Ini;
 
-public class InstallerSettings
-{
+public class InstallerSettings {
 	private static InstallerSettings instance;
-	
+
 	private Ini settings;
 
-    public static synchronized InstallerSettings getInstance()
-    {
-        if(instance == null)
-        {
-            instance = new InstallerSettings();
-        }
-        return instance;
-    }
-
-	private InstallerSettings()
-	{
-		
+	public static synchronized InstallerSettings getInstance() {
+		if (instance == null) {
+			instance = new InstallerSettings();
+		}
+		return instance;
 	}
-	
-	public void loadSettings(String path)
-	{
+
+	private InstallerSettings() {
+
+	}
+
+	public void loadSettings(String path) {
 		InputStream inputStream = getClass().getResourceAsStream(path);
 
-		try
-		{
+		try {
 			settings = new Ini(inputStream);
-		}
-		catch (IOException e)
-		{
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public Set<String> getAppNames() {
 		return settings.keySet();
 	}
 
-	public String getArguments(String application)
-	{
+	public String getArguments(String application) {
 		return settings.get(application, Option.ARGUMENTS);
 	}
 
-	public String getPath(String application)
-	{
-		return settings.get(application, Option.LOCAL_REPOSITORY);
-	}
-
-	public String getNetworkPath(String application)
-	{
+	public String getNetworkPath(String application) {
 		return settings.get(application, Option.NETWORK_REPOSITORY);
 	}
 
-	public String getDownloadURL(String application)
-	{
-		return settings.get(application, Option.DOWNLOAD_URL);
-	}
-
-	public String getIconPath(String application)
-	{
+	public String getIconPath(String application) {
 		return settings.get(application, Option.ICON);
 	}
 }
