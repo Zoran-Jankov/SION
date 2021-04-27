@@ -21,7 +21,8 @@ public class AppSelectionPanel extends JPanel {
 		int column = 0;
 		int row = 0;
 		for (String Application : settings.getAppNames()) {
-			JCheckBox appCheckBox = CheckBoxFactoryUtils.getInstance(Application);
+			JCheckBox appCheckBox = CheckBoxFactoryUtils
+					.getInstance(Application);
 			if (column == numberOfColumns) {
 				row++;
 				column = 0;
@@ -36,29 +37,30 @@ public class AppSelectionPanel extends JPanel {
 
 	private String[] generateLayout(int numberOfColumns) {
 		String[] layout = new String[3];
-		StringBuilder layoutColumns = new StringBuilder();
+		StringBuilder columnsConstraints = new StringBuilder();
 
 		for (int columnNumber = 0; columnNumber < numberOfColumns; columnNumber++) {
-			layoutColumns.append("[200px:200px:200px]");
+			columnsConstraints.append("[grow]");
 		}
 		int numberOfApps = settings.getAppNames().size();
 		int numberOfRows = numberOfApps / numberOfColumns;
 		if (numberOfApps % numberOfColumns > 0) {
 			numberOfRows++;
 		}
-		StringBuilder layoutRows = new StringBuilder();
+		StringBuilder rowsConstraints = new StringBuilder();
 		for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
-			layoutRows.append("[]");
+			rowsConstraints.append("[]");
 		}
 		layout[0] = "";
-		layout[1] = layoutColumns.toString();
-		layout[2] = layoutRows.toString();
+		layout[1] = columnsConstraints.toString();
+		layout[2] = rowsConstraints.toString();
 		return layout;
 	}
-	
+
 	public Map<String, Boolean> getAppsForInstall() {
 		Map<String, Boolean> applications = new HashMap<String, Boolean>();
-		checkBoxes.forEach((key, value) -> applications.put(key, value.isSelected()));
+		checkBoxes.forEach(
+				(key, value) -> applications.put(key, value.isSelected()));
 		return applications;
 	}
 }
