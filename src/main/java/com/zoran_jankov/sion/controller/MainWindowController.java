@@ -1,5 +1,6 @@
 package com.zoran_jankov.sion.controller;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
@@ -21,7 +22,7 @@ public class MainWindowController {
 
 	public MainWindowController() {
 		window.setLayout(new MigLayout("insets 20", "[center]",
-				"[][10px][200px][fill,grow][10px][]"));
+				"[][10px][200px][10px][fill,grow,25px][10px][]"));
 		window.setVisible(true);
 		window.setResizable(false);
 		initializeComponents();
@@ -36,10 +37,15 @@ public class MainWindowController {
 		windowSize = appSelectionPanel.getSize();
 		JTextArea infoBox = new JTextArea();
 		infoBox.setEditable(false);
-		window.add(infoBox, "cell 0 2,grow");
+		window.add(infoBox, "cell 0 2, grow");
 		JProgressBar progressBar = new JProgressBar();
-		window.add(progressBar, "cell 0 3");
+		progressBar.setBackground(Color.WHITE);
+		progressBar.setForeground(Color.GREEN);
+		progressBar.setValue(50);
+		progressBar.setStringPainted(true);
+		progressBar.setString("Installing . . . ");
+		window.add(progressBar, "cell 0 4, grow");
 		JButton installButton = new JButton("Install");
-		window.add(installButton, "cell 0 5");
+		window.add(installButton, "cell 0 6");
 	}
 }
