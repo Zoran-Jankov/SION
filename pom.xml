@@ -14,11 +14,15 @@
 				<version>3.8.1</version>
 				<configuration>
 					<release>14</release>
+					<archive>
+						<manifest>
+							<mainClass>com.zoran_jankov.sion.app.Sion</mainClass>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 
 		<dependency>
