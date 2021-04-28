@@ -24,7 +24,7 @@
 		<dependency>
 			<groupId>com.miglayout</groupId>
 			<artifactId>miglayout-core</artifactId>
-			<version>5.2</version>
+			<version>11.0</version>
 		</dependency>
 
 		<dependency>
