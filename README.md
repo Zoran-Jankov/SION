@@ -1,7 +1,5 @@
 # SION
 
-# RepairQ
-
 [![Java](https://img.shields.io/badge/Java-14-orange)](https://docs.oracle.com/en/java/javase/14/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![codebeat badge](https://codebeat.co/badges/48b5e031-9ddc-40ca-b112-931aadda2bc8)](https://codebeat.co/projects/github-com-zoran-jankov-sion-main)
