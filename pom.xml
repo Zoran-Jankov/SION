@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>com.miglayout</groupId>
 			<artifactId>miglayout-core</artifactId>
-			<version>11.0</version>
+			<version>11.1</version>
 		</dependency>
 
 		<dependency>
